@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article -ADMIN{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Gestion_Articles:ajouter page</h1>
+    <table >
+        {{ form_start(ajout_Form) }}
+        <tr>
+            <td>{{ form_label(ajout_Form.titre) }}</td>
+            <td> {{ form_widget(ajout_Form.titre) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.description) }}</td>
+            <td> {{ form_widget(ajout_Form.description) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.image) }}: </td>
+            <td> {{ form_widget(ajout_Form.image) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.contenu) }}: </td>
+            <td> {{ form_widget(ajout_Form.contenu) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.categorie) }}: </td>
+            <td> {{ form_widget(ajout_Form.categorie) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.tag1) }}: </td>
+            <td> {{ form_widget(ajout_Form.tag1) }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form_label(ajout_Form.tag2) }}: </td>
+            <td> {{ form_widget(ajout_Form.tag2) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(ajout_Form.tag3) }}: </td>
+            <td> {{ form_widget(ajout_Form.tag3) }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> {{ form_widget(ajout_Form.Ajouter,{'label':'Ajouter'}) }}</td>
+        </tr>
+        {{ form_end(ajout_Form) }}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un article -ADMIN{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Gestion_Articles:ajouter page</h1>
+{% for articles in article %}
+<img src="{{  asset('images/') ~ articles.image  }}" >
+    {% endfor %}
+{% endblock %}
