@@ -1,0 +1,132 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Gestion de Blog{% endblock %}
+{% block sidebaradmin %}
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="mt">
+                    <a  href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li  class="mt">
+                    <a class="active" href="{{ path('gestion_blog_homepage_Admin') }}">
+                        <i class="fa fa-edit"></i>
+                        <span>Gestion de Blog</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+{% endblock %}
+{% block content %}
+
+    <section id="main-content">
+    <section class="wrapper">
+        <div class="row mt">
+
+
+            <div class="col-sm-3">
+                <section class="panel">
+                    <div class="panel-body">
+                        <a href="{{ path('ajouter_article_Admin') }}" class="btn btn-compose">
+                            <i class="fa fa-pencil"></i>  Ajouter un Article
+                        </a>
+                        <ul class="nav nav-pills nav-stacked mail-nav">
+                            <li class="active"><a href="#"> <i class="fa fa-certificate"></i> Catégories  </a></li>
+                            <li><a href="#"> <i class="fa fa-tags"></i> Tags </a></li>
+
+
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+
+
+
+
+            <div class="col-sm-9">
+                <section class="panel">
+                    <header class="panel-heading wht-bg">
+                        <h4 class="gen-case">
+                            Articles
+
+
+                            <form action="#" class="pull-right mail-src-position">
+                                <div class="input-append">
+                                    <input type="text" class="form-control " placeholder="Search Mail">
+                                </div>
+                            </form>
+
+
+
+
+                        </h4>
+                    </header>
+
+
+                    <div class="panel-body minimal">
+                        <div class="table-inbox-wrap ">
+                            <table class="table table-inbox table-hover">
+                                <tbody>
+
+
+
+
+{% for articles in article %}
+                                <tr class="">
+                                    <td class="inbox-small-cells">
+{{ articles.id }}
+                                    </td>
+                                    <td class="inbox-small-cells"><i class="fa fa-file-text-o"></i></td>
+                                    <td class="view-message dont-show"><a href="" target="_blank">{{ articles.titre }}</a></td>
+                                    <td class="view-message"><a href="" target="_blank">{{ articles.description }}</a></td>
+                                    <td class="view-message inbox-small-cells"></td>
+                                    <td class="view-message text-right">{{ articles.date|date("d M Y") }}</td>
+                                </tr>
+
+{% endfor %}
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </section>
+    </section>
+
+{% endblock %}

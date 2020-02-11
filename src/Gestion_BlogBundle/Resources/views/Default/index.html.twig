@@ -1,1 +1,53 @@
-Hello World!
+{% extends 'base.html.twig' %}
+
+{% block title %}BLOG DE l'ecole x{% endblock %}
+
+{% block activebar_menu %}
+<li class="nav-item"><a href="#" class="nav-link pl-0">Home</a></li>
+<li class="nav-item"><a href="#" class="nav-link">Clubs</a></li>
+<li class="nav-item active"><a href="#" class="nav-link">Blog</a></li>
+{% endblock %}
+
+
+{% block content %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{  asset('assets/images/bg_2.jpg') }}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                <h1 class="mb-2 bread">Notre Blog</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="../">Accueil <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row">
+
+{% for articles in article %}
+
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end" style="background-image: url('{{  asset('assets/images/') ~ articles.image }}');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">{{ articles.date|date("d") }}</span>
+                                <span class="mos">{{ articles.date|date("M") }}</span>
+                                <span class="yr">{{ articles.date|date("Y") }}</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a href="#">{{ articles.titre }}</a></h3>
+                            <p>{{ articles.description }}</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a href="#" class="btn btn-secondary">Lire la suite<span class="ion-ios-arrow-round-forward"></span></a></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -38,7 +38,7 @@ class Gestion_ArticlesController extends Controller
         $article=$this->getDoctrine()
             ->getRepository(Article::class)
             ->findAll();
-        return $this->render('@Gestion_Blog/Gestion_Articles/Affiche_articles.html.twig',
+        return $this->render('@Gestion_Blog/Gestion_Articles/gestion_blog.html.twig',
             array('article'=>$article));
     }
 

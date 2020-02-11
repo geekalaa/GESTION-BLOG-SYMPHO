@@ -2,6 +2,7 @@ gestion_blog:
     resource: "@Gestion_BlogBundle/Resources/config/routing.yml"
     prefix:   /blog
 
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

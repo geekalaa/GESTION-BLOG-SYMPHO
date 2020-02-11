@@ -1,49 +1,97 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block title %}Gestion de Blog - Ajouter un article{% endblock %}
+{% block sidebaradmin %}
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="mt">
+                    <a  href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="mt">
+                    <a class="active"  href="{{ path('gestion_blog_homepage_Admin') }}">
+                        <i class="fa fa-edit"></i>
+                        <span>Gestion de Blog</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+{% endblock %}
+{% block content %}
+    <section id="main-content">
+    <section class="wrapper">
+    <h3><i class="fa fa-angle-right"></i> ADMIN :</h3>
+    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 py-5 px-md-5 bg-primary">
+                    <div class="heading-section heading-section-white ftco-animate mb-5">
+                        <!--<span class="subheading">Ajouter un article :</span>-->
 
-{% block title %}Ajouter un article -ADMIN{% endblock %}
+                        <h4 class="mb"><i class="fa fa-angle-right"></i> Ajouter un article : </h4>
+                    </div>
+                    {{ form_start(ajout_Form) }}
+                    <div class="d-md-flex">
+                        <div class="form-group">
+                            {{ form_row(ajout_Form.titre, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.description, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
 
-{% block body %}
-<h1>Welcome to the Gestion_Articles:ajouter page</h1>
-    <table >
-        {{ form_start(ajout_Form) }}
-        <tr>
-            <td>{{ form_label(ajout_Form.titre) }}</td>
-            <td> {{ form_widget(ajout_Form.titre) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.description) }}</td>
-            <td> {{ form_widget(ajout_Form.description) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.image) }}: </td>
-            <td> {{ form_widget(ajout_Form.image) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.contenu) }}: </td>
-            <td> {{ form_widget(ajout_Form.contenu) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.categorie) }}: </td>
-            <td> {{ form_widget(ajout_Form.categorie) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.tag1) }}: </td>
-            <td> {{ form_widget(ajout_Form.tag1) }}</td>
-        </tr>
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.image, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
 
-        <tr>
-            <td>{{ form_label(ajout_Form.tag2) }}: </td>
-            <td> {{ form_widget(ajout_Form.tag2) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(ajout_Form.tag3) }}: </td>
-            <td> {{ form_widget(ajout_Form.tag3) }}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td> {{ form_widget(ajout_Form.Ajouter,{'label':'Ajouter'}) }}</td>
-        </tr>
-        {{ form_end(ajout_Form) }}
-    </table>
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.contenu, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
 
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.categorie, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.tag1, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.tag2, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.tag3, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+                        <div class="form-group ml-md-4">
+                            {{ form_row(ajout_Form.Ajouter, {'attr': {'class': 'btn btn-secondary costum  py-3 px-4','value':'Ajouter'},'style':{'color':'red'} }) }}
+                        </div>
+                    </div>
+                    {{ form_end(ajout_Form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    </section>
 {% endblock %}

@@ -1,11 +1,11 @@
-gestion_blog_homepage:
+Blog_Homepage_User:
     path:     /
     defaults: { _controller: Gestion_BlogBundle:Default:index }
 
-ajouter:
-    path:     /ajouter-article
+ajouter_article_Admin:
+    path:     /admin/ajouter-article
     defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:ajouter }
 
-afficher_liste:
-    path:     /articles
+gestion_blog_homepage_Admin:
+    path:     /admin/gestion-blog
     defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:Affiche_list_article }
