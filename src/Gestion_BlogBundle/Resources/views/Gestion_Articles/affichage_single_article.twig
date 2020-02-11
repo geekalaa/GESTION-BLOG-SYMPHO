@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ articlex.titre}}{% endblock %}
+
+{% block activebar_menu %}
+    <li class="nav-item"><a href="#" class="nav-link pl-0">Home</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Clubs</a></li>
+    <li class="nav-item active"><a href="#" class="nav-link">Blog</a></li>
+{% endblock %}
+
+
+{% block content %}
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{{  asset('assets/images/') ~ articlex.image }}');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-center">
+                <div class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+                    <h1 class="mb-2 bread">{{ articlex.titre}}</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="##">Accueil <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{{ path('Blog_Homepage_User') }}">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>{{ articlex.titre }} <i class="ion-ios-arrow-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-3"></h2>
+                    <p>{{ articlex.description }}</p>
+                    <p>
+                        <img src="{{  asset('assets/images/') ~ articlex.image }}" alt="{{ articlex.titre }}" class="img-fluid">
+                    </p>
+                     <p>{{ articlex.contenu }}</p>
+                    <div class="tag-widget post-tag-container mb-5 mt-5">
+                        <div class="tagcloud">
+                            <a href="#" class="tag-cloud-link">Life</a>
+                            <a href="#" class="tag-cloud-link">Sport</a>
+                            <a href="#" class="tag-cloud-link">Tech</a>
+                            <a href="#" class="tag-cloud-link">Travel</a>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div> <!-- .col-md-8 -->
+
+                <div class="col-lg-4 sidebar ftco-animate fadeInUp ftco-animated">
+                    <div class="sidebar-box">
+
+                        <form action="#" class="search-form">
+                            <div class="form-group">
+                                <span class="icon icon-search"></span>
+                                <input type="text" class="form-control" placeholder="Rechercher">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+                        <h3>Category</h3>
+                        <ul class="categories">
+                            <li><a href="#">Art </a></li>
+                            <li><a href="#">Sports </a></li>
+                            <li><a href="#">Language </a></li>
+                            <li><a href="#">Food </a></li>
+                            <li><a href="#">Music </a></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="sidebar-box ftco-animate fadeInUp ftco-animated">
+                        <h3>Tag Cloud</h3>
+                        <ul class="tagcloud m-0 p-0">
+                            <a href="#" class="tag-cloud-link">School</a>
+                            <a href="#" class="tag-cloud-link">Kids</a>
+                            <a href="#" class="tag-cloud-link">Nursery</a>
+                            <a href="#" class="tag-cloud-link">Daycare</a>
+                            <a href="#" class="tag-cloud-link">Care</a>
+                            <a href="#" class="tag-cloud-link">Kindergarten</a>
+                            <a href="#" class="tag-cloud-link">Teacher</a>
+                        </ul>
+                    </div>
+
+
+                </div><!-- END COL -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

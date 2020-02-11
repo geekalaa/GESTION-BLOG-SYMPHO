@@ -1,0 +1,97 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Gestion de Blog - Modifier un article{% endblock %}
+{% block sidebaradmin %}
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="mt">
+                    <a  href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="mt">
+                    <a class="active"  href="{{ path('gestion_blog_homepage_Admin') }}">
+                        <i class="fa fa-edit"></i>
+                        <span>Gestion de Blog</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+{% endblock %}
+{% block content %}
+    <section id="main-content">
+    <section class="wrapper">
+    <h3><i class="fa fa-angle-right"></i> ADMIN :</h3>
+    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 py-5 px-md-5 bg-primary">
+                    <div class="heading-section heading-section-white ftco-animate mb-5">
+                        <!--<span class="subheading">Ajouter un article :</span>-->
+
+                        <h4 class="mb"><i class="fa fa-angle-right"></i> Modifier l'article : </h4>
+                    </div>
+                    {{ form_start(form_edit) }}
+                    <div class="d-md-flex">
+                        <div class="form-group">
+                            {{ form_row(form_edit.titre, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.description, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.image, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.contenu, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.categorie, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.tag1, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.tag2, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.tag3, {'attr': {'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                    <div class="d-md-flex">
+                        <div class="form-group ml-md-4">
+                            {{ form_row(form_edit.Ajouter, {'attr': {'class': 'btn btn-secondary costum  py-3 px-4','value':'Ajouter'},'style':{'color':'red'} }) }}
+                        </div>
+                    </div>
+                    {{ form_end(form_edit) }}
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    </section>
+{% endblock %}

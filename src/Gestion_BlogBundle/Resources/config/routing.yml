@@ -9,3 +9,16 @@ ajouter_article_Admin:
 gestion_blog_homepage_Admin:
     path:     /admin/gestion-blog
     defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:Affiche_list_article }
+
+modifier_article_Admin:
+    path:     /admin/gestion-blog/modifier-article/{id}
+    defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:Update }
+
+supprimer_article_Admin:
+    path:     /admin/gestion-blog/supprimer-article/{id}
+    defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:Delete }
+
+Single_Affiche_article_User:
+    path:     /{id}
+    defaults: { _controller: Gestion_BlogBundle:Gestion_Articles:Single_Affiche }
+

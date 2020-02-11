@@ -23,7 +23,8 @@ class ArticleType extends AbstractType
             ])
             ->add('image',FileType::class,[
                 'label' => "Miniature d'article",
-                'required' => true,
+                'data_class' => null,
+                'required' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',// 1MB

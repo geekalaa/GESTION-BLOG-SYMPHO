@@ -60,7 +60,7 @@
 
                             <form action="#" class="pull-right mail-src-position">
                                 <div class="input-append">
-                                    <input type="text" class="form-control " placeholder="Search Mail">
+                                    <input type="text" class="form-control " placeholder="Rechercher">
                                 </div>
                             </form>
 
@@ -87,7 +87,8 @@
                                     <td class="inbox-small-cells"><i class="fa fa-file-text-o"></i></td>
                                     <td class="view-message dont-show"><a href="" target="_blank">{{ articles.titre }}</a></td>
                                     <td class="view-message"><a href="" target="_blank">{{ articles.description }}</a></td>
-                                    <td class="view-message inbox-small-cells"></td>
+                                    <td class="view-message inbox-small-cells"><a href="{{ path('modifier_article_Admin',{'id':articles.id}) }}"><i class="fa fa-edit"></i></a></td>
+                                    <td class="view-message inbox-small-cells"><a href="{{ path('supprimer_article_Admin',{'id':articles.id}) }}"><i class="fa fa-remove"></i></a></i></td>
                                     <td class="view-message text-right">{{ articles.date|date("d M Y") }}</td>
                                 </tr>
 

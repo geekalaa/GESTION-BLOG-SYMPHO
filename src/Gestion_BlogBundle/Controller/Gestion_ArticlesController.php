@@ -42,4 +42,58 @@ class Gestion_ArticlesController extends Controller
             array('article'=>$article));
     }
 
+    function UpdateAction($id,Request $request){
+
+        $em=$this->getDoctrine()->getManager();
+        $article=$em->getRepository(Article::class)
+            ->find($id);
+        $last_image_name = $article->getImage();
+        $Form=$this->createForm(ArticleType::class,$article);
+        $Form->handleRequest($request);
+        if($Form->isSubmitted()){
+            $image = $article->getImage();
+            $imageData = $Form->get('image')->getData();
+            if($imageData == null){
+                $article->setImage($last_image_name);
+                $em=$this->getDoctrine()->getManager();
+                $em->flush();
+                return $this->redirectToRoute('gestion_blog_homepage_Admin');
+            }
+                $nom_image = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move(
+                    $this->getParameter('images_articles_dossier'),
+                    $nom_image);
+
+                 $article->setImage($nom_image);
+
+
+
+            $em=$this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute('gestion_blog_homepage_Admin');
+
+        }
+        return $this->render('@Gestion_Blog/Gestion_Articles/modifier.html.twig',
+            array('form_edit'=>$Form->createView()));
+    }
+
+    function DeleteAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $article=$em->getRepository(Article::class)
+            ->find($id);
+        $em->remove($article);
+        $em->flush();
+        return $this->redirectToRoute('gestion_blog_homepage_Admin');
+
+    }
+    function Single_AfficheAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository(Article::class)
+            ->find($id);
+        return $this->render('@Gestion_Blog/Gestion_Articles/affichage_single_article.twig',
+            array('articlex'=>$article));
+    }
+
 }
